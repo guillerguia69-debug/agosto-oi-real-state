@@ -18,6 +18,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oi Real Estate | Franquicia Inmobiliaria</title>
     
+    <!-- Preloads for LCP (Performance) -->
+    <link rel="preload" href="images/hero-fondo.jpg.webp" as="image">
+    <link rel="preload" href="images/logosin fondo.webp" as="image">
+
+    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -36,7 +41,7 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '%VITE_FB_PIXEL_ID%');
+      fbq('init', '1381004290747633');
       fbq('track', 'PageView');
     </script>
     
@@ -79,7 +84,7 @@
 
         /* Hero Image - Ciudad de Barcelona */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%), url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=2074&auto=format&fit=crop');
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%), url('images/hero-fondo.jpg.webp');
             background-size: cover;
             background-position: center;
         }
@@ -109,14 +114,14 @@
     <!-- End Google Tag Manager (noscript) -->
     <noscript>
       <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=%VITE_FB_PIXEL_ID%&ev=PageView&noscript=1"
+      src="https://www.facebook.com/tr?id=1381004290747633&ev=PageView&noscript=1"
       />
     </noscript>
 
     <!-- NAV -->
     <nav class="absolute w-full z-50 py-8 px-6 md:px-12 lg:px-24 flex justify-between items-center">
         <!-- GOOGLE STUDIO: Asegúrate de que esta ruta apunte a tu imagen de logo sin fondo -->
-        <img src="images/logosin fondo.webp" alt="Oi Real Estate" class="h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <img src="images/logosin fondo.webp" fetchpriority="high" alt="Oi Real Estate" class="h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display:none;" class="flex flex-col items-start">
             <div class="text-5xl font-serif font-bold text-brand-red leading-none mb-1">Oi</div>
             <div class="h-[2px] w-full bg-brand-red mb-1"></div>
@@ -251,11 +256,11 @@
                         </div>
                         
                         <h2 class="text-2xl font-bold text-white mb-2">Solicitud recibida correctamente</h2>
-                        <p class="text-gray-400 font-light text-sm mb-8">Gracias por postular para formar parte de la red Oi Real Estate.</p>
+                        <p class="text-gray-400 font-normal text-sm mb-8">Gracias por postular para formar parte de la red Oi Real Estate.</p>
                         
                         <div class="w-12 h-[1px] bg-brand-red mx-auto mb-8"></div>
                         
-                        <p class="text-sm text-gray-300 font-light leading-relaxed mb-6">
+                        <p class="text-sm text-gray-300 font-normal leading-relaxed mb-6">
                             Nuestro equipo va a revisar tu solicitud, incluyendo la disponibilidad de tu zona. Como no todos los perfiles ni todas las zonas califican para el programa, te confirmamos por WhatsApp en menos de 24 horas si tu situación encaja con el modelo — y si es así, agendamos una llamada donde te explicamos con detalle la inversión y los plazos.
                         </p>
                         
@@ -277,7 +282,7 @@
         <!-- SUBTÍTULO Y BENEFICIOS -->
         <section id="modelo" class="py-24 bg-white text-center px-6">
             <h2 class="text-4xl md:text-5xl font-serif text-black mb-4 font-normal">Empiezas con lo que a otros<br>les toma años construir.</h2>
-            <p class="text-gray-400 font-sans font-light mb-20">No necesitas experiencia inmobiliaria. Necesitas mentalidad empresarial.</p>
+            <p class="text-gray-600 font-sans font-normal mb-20">No necesitas experiencia inmobiliaria. Necesitas mentalidad empresarial.</p>
             
             <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 text-left">
                 <!-- Benefit 1 -->
@@ -286,7 +291,7 @@
                         <i data-lucide="check-circle" class="w-8 h-8 stroke-[1.5]"></i>
                     </div>
                     <h3 class="text-2xl font-serif text-black mb-4">Cartera en marcha</h3>
-                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">No captas propiedades desde cero. Te incorporas a una cartera ya en marcha, con más de 100.000 propiedades gestionadas y más de 800 nuevos propietarios incorporados cada mes.</p>
+                    <p class="text-gray-700 font-normal text-[0.95rem] leading-relaxed">No captas propiedades desde cero. Te incorporas a una cartera ya en marcha, con más de 100.000 propiedades gestionadas y más de 800 nuevos propietarios incorporados cada mes.</p>
                 </div>
                 <!-- Benefit 2 -->
                 <div>
@@ -294,7 +299,7 @@
                         <i data-lucide="shield" class="w-8 h-8 stroke-[1.5]"></i>
                     </div>
                     <h3 class="text-2xl font-serif text-black mb-4">Marca consolidada</h3>
-                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Operas bajo una marca consolidada desde 2008 - no bajo un nombre que tienes que dar a conocer tú mismo. El prestigio ya está construido.</p>
+                    <p class="text-gray-700 font-normal text-[0.95rem] leading-relaxed">Operas bajo una marca consolidada desde 2008 - no bajo un nombre que tienes que dar a conocer tú mismo. El prestigio ya está construido.</p>
                 </div>
                 <!-- Benefit 3 -->
                 <div>
@@ -302,7 +307,7 @@
                         <i data-lucide="cpu" class="w-8 h-8 stroke-[1.5]"></i>
                     </div>
                     <h3 class="text-2xl font-serif text-black mb-4">Tecnología propia</h3>
-                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">CRM propio desde 2011, inteligencia artificial que analiza el mercado y cruza compradores, y un sistema que detecta propietarios y oportunidades antes que el resto del sector.</p>
+                    <p class="text-gray-700 font-normal text-[0.95rem] leading-relaxed">CRM propio desde 2011, inteligencia artificial que analiza el mercado y cruza compradores, y un sistema que detecta propietarios y oportunidades antes que el resto del sector.</p>
                 </div>
                 <!-- Benefit 4 -->
                 <div>
@@ -310,7 +315,7 @@
                         <i data-lucide="users" class="w-8 h-8 stroke-[1.5]"></i>
                     </div>
                     <h3 class="text-2xl font-serif text-black mb-4">Acompañamiento real</h3>
-                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Formación inicial de 10 días más acompañamiento presencial durante tu primera semana de operación.</p>
+                    <p class="text-gray-700 font-normal text-[0.95rem] leading-relaxed">Formación inicial de 10 días más acompañamiento presencial durante tu primera semana de operación.</p>
                 </div>
                 <!-- Benefit 5 -->
                 <div>
@@ -318,7 +323,7 @@
                         <i data-lucide="bar-chart-2" class="w-8 h-8 stroke-[1.5]"></i>
                     </div>
                     <h3 class="text-2xl font-serif text-black mb-4">Seguimiento intensivo</h3>
-                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Seguimiento intensivo durante los primeros 3 meses y supervisión mensual desde el cuarto. No te dejamos operando solo.</p>
+                    <p class="text-gray-700 font-normal text-[0.95rem] leading-relaxed">Seguimiento intensivo durante los primeros 3 meses y supervisión mensual desde el cuarto. No te dejamos operando solo.</p>
                 </div>
                 <!-- Benefit 6 -->
                 <div>
@@ -326,7 +331,7 @@
                         <i data-lucide="map" class="w-8 h-8 stroke-[1.5]"></i>
                     </div>
                     <h3 class="text-2xl font-serif text-black mb-4">Exclusividad</h3>
-                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Exclusividad de zona, confirmada mediante un estudio de mercado antes de arrancar.</p>
+                    <p class="text-gray-700 font-normal text-[0.95rem] leading-relaxed">Exclusividad de zona, confirmada mediante un estudio de mercado antes de arrancar.</p>
                 </div>
             </div>
         </section>
@@ -345,7 +350,7 @@
                             <i data-lucide="x" class="w-5 h-5 text-gray-400"></i>
                         </div>
                         <h3 class="font-serif text-xl text-gray-400 mb-4">Modelo Tradicional</h3>
-                        <p class="font-light text-gray-500 leading-relaxed text-sm">
+                        <p class="font-normal text-gray-400 leading-relaxed text-sm">
                             Las franquicias tradicionales venden una marca. Después te dejan resolver por tu cuenta la parte más difícil: conseguir propietarios y generar negocio.
                         </p>
                     </div>
@@ -356,7 +361,7 @@
                             <i data-lucide="check" class="w-5 h-5 text-white"></i>
                         </div>
                         <h3 class="font-serif text-xl text-white mb-4">El Modelo Oi</h3>
-                        <p class="font-light text-gray-300 leading-relaxed text-sm">
+                        <p class="font-normal text-gray-300 leading-relaxed text-sm">
                             Nosotros hacemos lo contrario. Primero resolvemos la captación. Después, tú haces crecer la agencia.
                         </p>
                     </div>
@@ -400,34 +405,34 @@
                     <!-- Tarjeta 1: Agenda IA -->
                     <div>
                         <!-- GOOGLE STUDIO: PON AQUÍ TU IMAGEN DE AGENDA IA -->
-                        <img src="images/calendario-Nexo-CRM%20(1).webp" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="Agenda IA">
+                        <img src="images/calendario-Nexo-CRM%20(1).webp" loading="lazy" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="Agenda IA">
                         <div class="flex items-center gap-2 mb-3">
                             <i data-lucide="bot" class="w-5 h-5 text-brand-red"></i>
                             <h4 class="text-xl font-serif font-bold text-black">Agenda IA</h4>
                         </div>
-                        <p class="text-sm font-light text-gray-500 leading-relaxed">Olvídate de la puerta fría y las llamadas de prospección. Nuestra IA filtra y califica el interés, entregando solo citas confirmadas en tu CRM. Tu única tarea es la gestión comercial y el cierre.</p>
+                        <p class="text-sm font-normal text-gray-700 leading-relaxed">Olvídate de la puerta fría y las llamadas de prospección. Nuestra IA filtra y califica el interés, entregando solo citas confirmadas en tu CRM. Tu única tarea es la gestión comercial y el cierre.</p>
                     </div>
 
                     <!-- Tarjeta 2: Inventario -->
                     <div>
                         <!-- GOOGLE STUDIO: PON AQUÍ TU IMAGEN DE INVENTARIO -->
-                        <img src="images/Propiedades-%20(1).webp" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="Inventario">
+                        <img src="images/Propiedades-%20(1).webp" loading="lazy" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="Inventario">
                         <div class="flex items-center gap-2 mb-3">
                             <i data-lucide="layout-grid" class="w-5 h-5 text-brand-red"></i>
                             <h4 class="text-xl font-serif font-bold text-black">Inventario Verificado</h4>
                         </div>
-                        <p class="text-sm font-light text-gray-500 leading-relaxed">Accede a nuestro catálogo de propiedades premium ya gestionadas y validadas. Empieza a operar con activos reales desde el primer día.</p>
+                        <p class="text-sm font-normal text-gray-700 leading-relaxed">Accede a nuestro catálogo de propiedades premium ya gestionadas y validadas. Empieza a operar con activos reales desde el primer día.</p>
                     </div>
 
                     <!-- Tarjeta 3: CRM -->
                     <div>
                         <!-- GOOGLE STUDIO: PON AQUÍ TU IMAGEN DE CRM -->
-                        <img src="images/interfaz-Nexo-CRM%20(1).webp" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="CRM">
+                        <img src="images/interfaz-Nexo-CRM%20(1).webp" loading="lazy" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="CRM">
                         <div class="flex items-center gap-2 mb-3">
                             <i data-lucide="git-merge" class="w-5 h-5 text-brand-red"></i>
                             <h4 class="text-xl font-serif font-bold text-black">Tecnología Integrada</h4>
                         </div>
-                        <p class="text-sm font-light text-gray-500 leading-relaxed">Centraliza todo en nuestra plataforma propia: CRM integrado, gestión de demandas y automatización de seguimientos.</p>
+                        <p class="text-sm font-normal text-gray-700 leading-relaxed">Centraliza todo en nuestra plataforma propia: CRM integrado, gestión de demandas y automatización de seguimientos.</p>
                     </div>
                 </div>
 
@@ -477,7 +482,7 @@
             <div class="max-w-3xl mx-auto">
                 <p class="text-[0.65rem] uppercase tracking-[0.2em] mb-4 font-bold">"EL RIESGO NO ES CAMBIAR. EL RIESGO ES NO HACERLO."</p>
                 <h2 class="text-4xl md:text-6xl font-serif mb-6 font-normal">¿Listo para dar el siguiente paso?</h2>
-                <p class="font-light text-white/90 mb-12 text-sm">Descubre si este modelo encaja contigo y conoce los requisitos para formar parte de la red.</p>
+                <p class="font-normal text-white/90 mb-12 text-sm">Descubre si este modelo encaja contigo y conoce los requisitos para formar parte de la red.</p>
                 
                 <a href="#aplicar" class="inline-block bg-[#0a0a0a] text-white px-10 py-5 uppercase tracking-widest text-[0.75rem] font-bold hover:bg-white hover:text-[#0a0a0a] transition-colors shadow-lg">
                     APLICAR AL PROGRAMA -
@@ -493,7 +498,7 @@
         </section>
     </main>
 
-    <footer class="bg-[#0a0a0a] text-gray-500 py-10 px-6 text-[0.70rem] font-light text-center flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+    <footer class="bg-[#0a0a0a] text-gray-500 py-10 px-6 text-[0.70rem] font-normal text-center flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
         <p class="mb-4 md:mb-0">© 2026 Oi Real Estate Barcelona. Todos los derechos reservados.</p>
         <div class="flex gap-6">
             <a href="#" class="hover:text-white transition-colors">Privacidad</a>
