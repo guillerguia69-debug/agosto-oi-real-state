@@ -34,10 +34,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const sheets = google.sheets({ version: "v4", auth });
     const spreadsheetId = process.env.GOOGLE_SPREADSHEET_ID;
 
+    const sheetInfo = await sheets.spreadsheets.get({
+      spreadsheetId: spreadsheetId as string,
+    });
+    
+    const firstSheetTitle = sheetInfo.data.sheets?.[0]?.properties?.title || "Sheet1";
+
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Hoja 1!A:L", // Asegúrate de que este es el nombre de tu hoja
+      range: `'${firstSheetTitle}'!A:A`,
       valueInputOption: "USER_ENTERED",
+      insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [
           [
@@ -51,6 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             plazo,
             inversion,
             utm_source,
+            "LP", // Columna K
             utm_campaign,
             utm_content,
           ],
@@ -59,8 +67,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     res.status(200).json({ success: true, message: "Datos guardados en Google Sheets" });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error al guardar en Sheets:", error);
-    res.status(500).json({ success: false, error: "Error interno del servidor" });
+    res.status(500).json({ success: false, error: String(error) });
   }
 }

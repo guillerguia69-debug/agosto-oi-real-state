@@ -56,13 +56,14 @@ app.post("/api/submit", async (req, res) => {
       payload.plazo || "",
       payload.inversion || "",
       payload.utm_source || "",
+      "LP", // Columna K
       payload.utm_campaign || "",
       payload.utm_content || "",
     ];
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
-      range: `${firstSheetTitle}!A:A`,
+      range: `'${firstSheetTitle}'!A:A`,
       valueInputOption: "USER_ENTERED",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
