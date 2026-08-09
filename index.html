@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script>
+    // Bypass for environment fetch interception errors
+    try {
+      if (typeof window !== 'undefined' && window.fetch) {
+        const origFetch = window.fetch;
+        Object.defineProperty(window, 'fetch', {
+          get: () => origFetch,
+          set: (v) => {},
+          configurable: true
+        });
+      }
+    } catch(e) {}
+  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oi Real Estate | Franquicia Inmobiliaria</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','%VITE_GTM_ID%');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '%VITE_FB_PIXEL_ID%');
+      fbq('track', 'PageView');
+    </script>
+    
+    <!-- End Meta Pixel Code -->
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',   
+                            red: '#E60000',     
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hero Image - Ciudad de Barcelona */
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%), url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=2074&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Botones del Hero (Estilo Ghost) */
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            transition: all 0.3s;
+        }
+        .btn-ghost:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%VITE_GTM_ID%"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <noscript>
+      <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=%VITE_FB_PIXEL_ID%&ev=PageView&noscript=1"
+      />
+    </noscript>
+
+    <!-- NAV -->
+    <nav class="absolute w-full z-50 py-8 px-6 md:px-12 lg:px-24 flex justify-between items-center">
+        <!-- GOOGLE STUDIO: Asegúrate de que esta ruta apunte a tu imagen de logo sin fondo -->
+        <img src="images/logosin fondo.webp" alt="Oi Real Estate" class="h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none;" class="flex flex-col items-start">
+            <div class="text-5xl font-serif font-bold text-brand-red leading-none mb-1">Oi</div>
+            <div class="h-[2px] w-full bg-brand-red mb-1"></div>
+            <div class="text-[0.45rem] tracking-[0.4em] font-medium text-white uppercase">Real Estate</div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-bg min-h-[90vh] flex items-center relative pt-32 pb-20 px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+                
+                <!-- Textos Hero -->
+                <div class="z-10 text-white">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-[1px] w-8 bg-brand-red"></div>
+                        <p class="uppercase tracking-[0.1em] text-[0.65rem] font-semibold text-gray-300">OPORTUNIDAD DE NEGOCIO INMOBILIARIO</p>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-5xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-8 font-normal">
+                        Construye tu <br>propio negocio <br>inmobiliario bajo <br>una marca <br><span class="italic text-brand-red font-medium">consolidada</span> <span class="text-white">- sin <br>empezar de cero.</span>
+                    </h1>
+
+                    <div class="flex gap-4 mt-12">
+                        <a href="#aplicar" class="btn-ghost">Aplicar al programa</a>
+                        <a href="#modelo" class="btn-ghost hidden sm:inline-block">Descubrir el sistema</a>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div id="aplicar" class="z-10 w-full max-w-lg mx-auto lg:ml-auto">
+                    <!-- Formulario Blanco basado en tu captura -->
+                    <form id="application-form" class="bg-white p-8 md:p-10 shadow-2xl rounded-sm">
+                        
+                        <!-- PASO 1 -->
+                        <div id="step1">
+                            <h3 class="text-xl font-bold text-brand-black mb-2 text-center">APLICAR AL PROGRAMA</h3>
+                            <p class="text-[0.65rem] text-gray-500 mb-8 font-medium uppercase tracking-widest text-center">COMPLETA TUS DATOS PARA VER SI CUALIFICAS PARA EL PROGRAMA.</p>
+                            
+                            <div class="space-y-5">
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">Nombre Completo *</label>
+                                    <input type="text" id="nombre" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red" placeholder="Tu nombre completo">
+                                </div>
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">Correo Electrónico *</label>
+                                    <input type="email" id="email" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red" placeholder="tu@correo.com">
+                                </div>
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">WhatsApp *</label>
+                                    <input type="tel" id="whatsapp" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red" placeholder="+34 600 000 000">
+                                </div>
+                            </div>
+
+                            <button type="button" onclick="nextStep()" class="bg-brand-red text-white w-full py-4 mt-8 flex justify-center items-center text-[0.80rem] font-bold hover:bg-black transition-colors">
+                                SIGUIENTE
+                            </button>
+                        </div>
+
+                        <!-- PASO 2 -->
+                        <div id="step2" class="hidden">
+                            <div class="space-y-5">
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">1. OBJETIVO PRINCIPAL AL ABRIR LA AGENCIA <span class="text-brand-red">*</span></label>
+                                    <select id="objetivo" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red">
+                                        <option value="" disabled selected>Selecciona una opción</option>
+                                        <option value="Independencia financiera">Independencia financiera</option>
+                                        <option value="Crecimiento profesional">Crecimiento profesional</option>
+                                        <option value="Construir y operar mi propio negocio">Construir y operar mi propio negocio</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">2. DISPONIBILIDAD DE TIEMPO <span class="text-brand-red">*</span></label>
+                                    <select id="tiempo" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red">
+                                        <option value="" disabled selected>Selecciona tu disponibilidad</option>
+                                        <option value="Tiempo completo">Tiempo completo</option>
+                                        <option value="Tiempo parcial">Tiempo parcial</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">3. ¿EN QUÉ CIUDAD O ZONA TE GUSTARÍA ABRIR TU NEGOCIO? <span class="text-brand-red">*</span></label>
+                                    <input id="zona" type="text" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red" placeholder="Ej. Madrid, Barcelona...">
+                                </div>
+
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">4. PLAZO PARA ESTAR OPERATIVO <span class="text-brand-red">*</span></label>
+                                    <select id="plazo" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red">
+                                        <option value="" disabled selected>Selecciona un plazo</option>
+                                        <option value="Este mes">Este mes</option>
+                                        <option value="1 a 3 meses">1 a 3 meses</option>
+                                        <option value="3 a 6 meses">3 a 6 meses</option>
+                                        <option value="Más de 6 meses">Más de 6 meses</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[0.65rem] font-bold uppercase tracking-widest text-black mb-1">5. ¿ESTÁS DISPUESTO A REALIZAR LA INVERSIÓN NECESARIA SI EL MODELO ENCAJA CONTIGO? <span class="text-brand-red">*</span></label>
+                                    <select id="inversion" required class="w-full bg-white border border-gray-300 text-black p-3 text-sm focus:outline-none focus:border-brand-red">
+                                        <option value="" disabled selected>Selecciona una opción</option>
+                                        <option value="Sí, estoy dispuesto a invertir si el modelo encaja conmigo">Sí, estoy dispuesto a invertir si el modelo encaja conmigo</option>
+                                        <option value="Necesito más información antes de decidir">Necesito más información antes de decidir</option>
+                                    </select>
+                                </div>
+
+                                <div class="flex items-start mt-4">
+                                    <div class="flex items-center h-5">
+                                        <input id="confirmacion" type="checkbox" required class="w-4 h-4 text-brand-red border-gray-300 rounded focus:ring-brand-red">
+                                    </div>
+                                    <div class="ml-3 text-[0.65rem] font-bold uppercase tracking-widest text-gray-500">
+                                        <label for="confirmacion">Confirmo que mis datos son correctos y deseo agendar una evaluación.</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 mt-8">
+                                <button type="button" onclick="prevStep()" class="w-1/3 py-3 text-[0.80rem] font-bold text-black hover:text-gray-500 transition-colors flex items-center justify-center">
+                                    &larr; ATRÁS
+                                </button>
+                                <button type="submit" id="btn-enviar" class="w-2/3 py-3 bg-brand-red text-white text-[0.80rem] font-bold hover:bg-black transition-colors flex justify-center items-center">
+                                    ENVIAR APLICACIÓN &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- PANTALLA DE GRACIAS (Basada en tu captura image_f88995.png) -->
+                    <div id="stepThanks" class="hidden bg-[#161b22] p-10 md:p-12 rounded-sm text-center shadow-2xl">
+                        <div class="w-12 h-12 bg-[#2d333b] rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="check" class="w-6 h-6 text-white"></i>
+                        </div>
+                        
+                        <h2 class="text-2xl font-bold text-white mb-2">Solicitud recibida correctamente</h2>
+                        <p class="text-gray-400 font-light text-sm mb-8">Gracias por postular para formar parte de la red Oi Real Estate.</p>
+                        
+                        <div class="w-12 h-[1px] bg-brand-red mx-auto mb-8"></div>
+                        
+                        <p class="text-sm text-gray-300 font-light leading-relaxed mb-6">
+                            Nuestro equipo va a revisar tu solicitud, incluyendo la disponibilidad de tu zona. Como no todos los perfiles ni todas las zonas califican para el programa, te confirmamos por WhatsApp en menos de 24 horas si tu situación encaja con el modelo — y si es así, agendamos una llamada donde te explicamos con detalle la inversión y los plazos.
+                        </p>
+                        
+                        <p class="text-[0.70rem] text-gray-500 mb-10">
+                            Guarda este número en tus contactos para no perderte el mensaje.
+                        </p>
+                        
+                        <div class="pt-6 border-t border-white/5">
+                            <p class="text-[0.75rem] text-white mb-4">¿No quieres esperar? Escríbenos ahora.</p>
+                            <a href="https://wa.me/34600000000" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-[#e02424] text-white text-sm font-bold rounded-sm hover:bg-red-700 transition-colors">
+                                <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i> Hablar por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBTÍTULO Y BENEFICIOS -->
+        <section id="modelo" class="py-24 bg-white text-center px-6">
+            <h2 class="text-4xl md:text-5xl font-serif text-black mb-4 font-normal">Empiezas con lo que a otros<br>les toma años construir.</h2>
+            <p class="text-gray-400 font-sans font-light mb-20">No necesitas experiencia inmobiliaria. Necesitas mentalidad empresarial.</p>
+            
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 text-left">
+                <!-- Benefit 1 -->
+                <div>
+                    <div class="mb-6 text-brand-red">
+                        <i data-lucide="check-circle" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-black mb-4">Cartera en marcha</h3>
+                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">No captas propiedades desde cero. Te incorporas a una cartera ya en marcha, con más de 100.000 propiedades gestionadas y más de 800 nuevos propietarios incorporados cada mes.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div>
+                    <div class="mb-6 text-brand-red">
+                        <i data-lucide="shield" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-black mb-4">Marca consolidada</h3>
+                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Operas bajo una marca consolidada desde 2008 - no bajo un nombre que tienes que dar a conocer tú mismo. El prestigio ya está construido.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div>
+                    <div class="mb-6 text-brand-red">
+                        <i data-lucide="cpu" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-black mb-4">Tecnología propia</h3>
+                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">CRM propio desde 2011, inteligencia artificial que analiza el mercado y cruza compradores, y un sistema que detecta propietarios y oportunidades antes que el resto del sector.</p>
+                </div>
+                <!-- Benefit 4 -->
+                <div>
+                    <div class="mb-6 text-brand-red">
+                        <i data-lucide="users" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-black mb-4">Acompañamiento real</h3>
+                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Formación inicial de 10 días más acompañamiento presencial durante tu primera semana de operación.</p>
+                </div>
+                <!-- Benefit 5 -->
+                <div>
+                    <div class="mb-6 text-brand-red">
+                        <i data-lucide="bar-chart-2" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-black mb-4">Seguimiento intensivo</h3>
+                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Seguimiento intensivo durante los primeros 3 meses y supervisión mensual desde el cuarto. No te dejamos operando solo.</p>
+                </div>
+                <!-- Benefit 6 -->
+                <div>
+                    <div class="mb-6 text-brand-red">
+                        <i data-lucide="map" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif text-black mb-4">Exclusividad</h3>
+                    <p class="text-gray-500 font-light text-[0.95rem] leading-relaxed">Exclusividad de zona, confirmada mediante un estudio de mercado antes de arrancar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN COMPARATIVA (Fondo Oscuro literal) -->
+        <section class="py-24 px-6 bg-[#111111] text-white">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-serif text-center mb-20 font-normal text-white">
+                    El modelo tradicional de franquicia inmobiliaria <span class="italic text-brand-red">está obsoleto.</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
+                    <!-- Modelo Tradicional -->
+                    <div class="border border-[#222] p-10 relative bg-[#151515]">
+                        <div class="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center">
+                            <i data-lucide="x" class="w-5 h-5 text-gray-400"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-gray-400 mb-4">Modelo Tradicional</h3>
+                        <p class="font-light text-gray-500 leading-relaxed text-sm">
+                            Las franquicias tradicionales venden una marca. Después te dejan resolver por tu cuenta la parte más difícil: conseguir propietarios y generar negocio.
+                        </p>
+                    </div>
+
+                    <!-- Modelo Oi -->
+                    <div class="border border-brand-red p-10 relative bg-[#1a0f0f]">
+                        <div class="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-brand-red flex items-center justify-center">
+                            <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-white mb-4">El Modelo Oi</h3>
+                        <p class="font-light text-gray-300 leading-relaxed text-sm">
+                            Nosotros hacemos lo contrario. Primero resolvemos la captación. Después, tú haces crecer la agencia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-20 text-center">
+                    <p class="text-xl md:text-2xl font-serif italic font-normal leading-relaxed text-gray-200">
+                        "Las franquicias tradicionales te dan una marca. Nosotros también - y 800<br>propietarios nuevos cada mes."
+                    </p>
+                    <div class="w-12 h-[1px] bg-brand-red mx-auto mt-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NÚMEROS -->
+        <section class="py-24 bg-[#f4f4f4]">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-2xl font-serif text-center text-black mb-16 font-normal">Los números detrás del sistema.</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center divide-y md:divide-y-0 md:divide-x divide-gray-300">
+                    <div class="px-4 md:px-8 py-8 md:py-0 text-center w-full md:w-1/3">
+                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-black mb-4">800</p>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-gray-500 font-bold leading-relaxed">PROPIETARIOS VENDEDORES<br>INCORPORADOS CADA MES</p>
+                    </div>
+                    <div class="px-4 md:px-8 py-8 md:py-0 text-center w-full md:w-1/3">
+                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-black mb-4">+100.000</p>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-gray-500 font-bold leading-relaxed">PROPIEDADES<br>GESTIONADAS</p>
+                    </div>
+                    <div class="px-4 md:px-8 py-8 md:py-0 text-center w-full md:w-1/3">
+                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-black mb-4">2008</p>
+                        <p class="text-[0.65rem] uppercase tracking-widest text-gray-500 font-bold leading-relaxed">OPERANDO EN<br>ESPAÑA DESDE</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN TECNOLOGÍA Y CITA -->
+        <section class="py-24 px-6 md:px-12 lg:px-24 bg-white text-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+                    
+                    <!-- Tarjeta 1: Agenda IA -->
+                    <div>
+                        <!-- GOOGLE STUDIO: PON AQUÍ TU IMAGEN DE AGENDA IA -->
+                        <img src="images/calendario-Nexo-CRM%20(1).webp" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="Agenda IA">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="bot" class="w-5 h-5 text-brand-red"></i>
+                            <h4 class="text-xl font-serif font-bold text-black">Agenda IA</h4>
+                        </div>
+                        <p class="text-sm font-light text-gray-500 leading-relaxed">Olvídate de la puerta fría y las llamadas de prospección. Nuestra IA filtra y califica el interés, entregando solo citas confirmadas en tu CRM. Tu única tarea es la gestión comercial y el cierre.</p>
+                    </div>
+
+                    <!-- Tarjeta 2: Inventario -->
+                    <div>
+                        <!-- GOOGLE STUDIO: PON AQUÍ TU IMAGEN DE INVENTARIO -->
+                        <img src="images/Propiedades-%20(1).webp" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="Inventario">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="layout-grid" class="w-5 h-5 text-brand-red"></i>
+                            <h4 class="text-xl font-serif font-bold text-black">Inventario Verificado</h4>
+                        </div>
+                        <p class="text-sm font-light text-gray-500 leading-relaxed">Accede a nuestro catálogo de propiedades premium ya gestionadas y validadas. Empieza a operar con activos reales desde el primer día.</p>
+                    </div>
+
+                    <!-- Tarjeta 3: CRM -->
+                    <div>
+                        <!-- GOOGLE STUDIO: PON AQUÍ TU IMAGEN DE CRM -->
+                        <img src="images/interfaz-Nexo-CRM%20(1).webp" class="w-full rounded-md mb-6 shadow-sm object-cover aspect-video" alt="CRM">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="git-merge" class="w-5 h-5 text-brand-red"></i>
+                            <h4 class="text-xl font-serif font-bold text-black">Tecnología Integrada</h4>
+                        </div>
+                        <p class="text-sm font-light text-gray-500 leading-relaxed">Centraliza todo en nuestra plataforma propia: CRM integrado, gestión de demandas y automatización de seguimientos.</p>
+                    </div>
+                </div>
+
+                <!-- CITA LUIS RUBÉN GUALTIERI -->
+                <div class="max-w-4xl mx-auto text-center border-t border-gray-100 pt-16">
+                    <p class="text-xl md:text-2xl font-serif italic text-black mb-6">"Quien controla los datos, controla las oportunidades. Y quien controla las oportunidades, lidera el mercado."</p>
+                    <p class="text-[0.70rem] text-brand-red font-bold uppercase tracking-widest">LUIS RUBÉN GUALTIERI, FUNDADOR Y CEO</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN TESTIMONIOS -->
+        <section class="py-24 px-6 bg-[#fcfcfc] border-t border-gray-100">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-serif text-center mb-16 font-normal text-black">Respaldado por resultados reales.</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Testimonio 1 -->
+                    <div class="bg-white p-10 shadow-sm border border-gray-100 relative pt-12">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-brand-red"></div>
+                        <p class="font-serif italic text-gray-600 text-lg leading-relaxed mb-8">
+                            "Oi Real Estate proporciona a los franquiciados un gran conocimiento del sector y una imagen sólida y bien posicionada en todo el territorio nacional."
+                        </p>
+                        <div>
+                            <p class="font-bold text-black text-[0.75rem] uppercase tracking-widest">Albert Tárraga</p>
+                            <p class="text-gray-400 text-[0.65rem] mt-1 uppercase tracking-widest">Franquiciado Sant Cugat</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="bg-white p-10 shadow-sm border border-gray-100 relative pt-12">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-brand-red"></div>
+                        <p class="font-serif italic text-gray-600 text-lg leading-relaxed mb-8">
+                            "La ventaja de emprender con una franquicia es que adaptas su modelo a tus clientes y cartera de propiedades. Oi Real Estate aporta, además, un equipo profesional y la última tecnología."
+                        </p>
+                        <div>
+                            <p class="font-bold text-black text-[0.75rem] uppercase tracking-widest">Marian Fuset</p>
+                            <p class="text-gray-400 text-[0.65rem] mt-1 uppercase tracking-widest">Franquiciada Maresme</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CIERRE -->
+        <section class="py-24 px-6 text-center bg-brand-red text-white">
+            <div class="max-w-3xl mx-auto">
+                <p class="text-[0.65rem] uppercase tracking-[0.2em] mb-4 font-bold">"EL RIESGO NO ES CAMBIAR. EL RIESGO ES NO HACERLO."</p>
+                <h2 class="text-4xl md:text-6xl font-serif mb-6 font-normal">¿Listo para dar el siguiente paso?</h2>
+                <p class="font-light text-white/90 mb-12 text-sm">Descubre si este modelo encaja contigo y conoce los requisitos para formar parte de la red.</p>
+                
+                <a href="#aplicar" class="inline-block bg-[#0a0a0a] text-white px-10 py-5 uppercase tracking-widest text-[0.75rem] font-bold hover:bg-white hover:text-[#0a0a0a] transition-colors shadow-lg">
+                    APLICAR AL PROGRAMA -
+                </a>
+                
+                <div class="flex items-center justify-center mt-8 gap-2">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <p class="text-[0.65rem] font-medium tracking-[0.1em] uppercase">
+                        RESPUESTA EN MENOS DE 24 HORAS
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0a0a0a] text-gray-500 py-10 px-6 text-[0.70rem] font-light text-center flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+        <p class="mb-4 md:mb-0">© 2026 Oi Real Estate Barcelona. Todos los derechos reservados.</p>
+        <div class="flex gap-6">
+            <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+            <a href="#" class="hover:text-white transition-colors">Legal</a>
+            <a href="#" class="hover:text-white transition-colors">Cookies</a>
+            <a href="#" class="hover:text-white transition-colors">Contacto</a>
+        </div>
+    </footer>
+
+    
+
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Lógica de validación visual de pasos del formulario
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+
+        function validateStep1() {
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            return nombre && email && whatsapp;
+        }
+
+        function nextStep() {
+            if(!validateStep1()) {
+                document.getElementById('application-form').reportValidity();
+                return;
+            }
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+        }
+
+        function prevStep() {
+            step2.classList.add('hidden');
+            step1.classList.remove('hidden');
+        }
+
+        // ==========================================
+        // LÓGICA DE ENVÍO A GOOGLE SHEETS (FETCH)
+        // ==========================================
+        const GOOGLE_SHEETS_ENDPOINT = "/api/submit";
+        const extendedForm = document.getElementById('application-form');
+        const btnEnviar = document.getElementById('btn-enviar');
+
+        extendedForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Guardamos el texto original del botón y mostramos estado de carga
+            const originalText = btnEnviar.innerHTML;
+            btnEnviar.innerHTML = 'Enviando...';
+            btnEnviar.disabled = true;
+
+            // Obtener la fecha actual en formato local
+            const now = new Date();
+            const fechaHora = now.toLocaleString('es-ES', { 
+                day: 'numeric', month: 'numeric', year: 'numeric', 
+                hour: 'numeric', minute: 'numeric', second: 'numeric' 
+            }).replace(',', '');
+
+            // Recopilar los datos de los inputs del formulario
+            const payload = {
+                fecha_hora: fechaHora,
+                nombre: document.getElementById('nombre').value,
+                correo: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                objetivo: document.getElementById('objetivo').value,
+                disponibilidad: document.getElementById('tiempo').value,
+                zona: document.getElementById('zona').value,
+                plazo: document.getElementById('plazo').value,
+                inversion: document.getElementById('inversion').value,
+                utm_source: "", // Reservado para campañas
+                utm_campaign: "", // Reservado para campañas
+                utm_content: "" // Reservado para campañas
+            };
+
+            try {
+                // Realizamos la solicitud POST a nuestro servidor Express (/api/submit)
+                const response = await fetch(GOOGLE_SHEETS_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    let errorMsg = 'Error en la respuesta del servidor';
+                    try {
+                        const errData = await response.json();
+                        if (errData.error) errorMsg = errData.error;
+                    } catch(e) {}
+                    throw new Error(errorMsg);
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // EN LUGAR DE REDIRIGIR, MOSTRAMOS LA PANTALLA DE GRACIAS AQUÍ MISMO
+                    extendedForm.classList.add('hidden');
+                    document.getElementById('stepThanks').classList.remove('hidden');
+                    
+                    // Hacer scroll hacia arriba para que el usuario vea el mensaje
+                    document.getElementById('aplicar').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Disparar evento del Píxel de Facebook
+                    if(typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+                } else {
+                    throw new Error(data.error || 'Error al guardar');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ocurrió un error al enviar tu aplicación. Por favor, intenta de nuevo.');
+                // Restauramos el botón si hubo un error
+                btnEnviar.innerHTML = originalText;
+                btnEnviar.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
