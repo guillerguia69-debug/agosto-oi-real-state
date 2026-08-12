@@ -12,18 +12,25 @@
     
     <!-- Meta Pixel Code -->
     <script>
-setTimeout(function(){
-!function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1381004290747633');
-      fbq('track', 'PageView');
-}, 3000);
+// Meta Pixel — carga 100% diferida (control estricto de terceros)
+// Stub de fbq: encola comandos sin descargar fbevents.js ni bloquear el render.
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+// Inicialización encolada (se ejecuta cuando fbevents.js cargue).
+fbq('init', '1381004290747633');
+fbq('track', 'PageView');
+// Inyección diferida: solo tras el load completo de la página + 2s de margen.
+// No compite con el render inicial (mejora FCP) y no altera el layout (CLS = 0).
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(s);
+  }, 2000);
+});
 </script>
     
     <!-- End Meta Pixel Code -->
