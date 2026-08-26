@@ -56,7 +56,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 
         /* Hero Image - Ciudad de Barcelona */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(15, 17, 21, 0.85) 0%, rgba(15, 17, 21, 0.93) 100%), url('images/hero-fondo.webp');
+            background-image: linear-gradient(to bottom, rgba(13, 15, 18, 0.85) 0%, rgba(13, 15, 18, 0.93) 100%), url('images/hero-fondo.webp');
             background-size: cover;
             background-position: center;
         }
@@ -77,9 +77,28 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
             border-color: white;
             background: rgba(255, 255, 255, 0.1);
         }
+
+        /* Botón principal del Hero (Primario — rojo corporativo Oi) */
+        .btn-primary {
+            background: #E60000;
+            border: 1px solid #E60000;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 6px 24px rgba(230, 0, 0, 0.28);
+        }
+        .btn-primary:hover {
+            background: #b91c1c;
+            border-color: #b91c1c;
+            box-shadow: 0 8px 28px rgba(230, 0, 0, 0.45);
+        }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-[#0f1115]">
+<body class="font-sans text-gray-800 bg-[#0d0f12]">
     <noscript>
       <img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1381004290747633&ev=PageView&noscript=1"
@@ -118,7 +137,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                     </p>
 
                     <div class="flex gap-4 mt-0">
-                        <a href="#aplicar" class="btn-ghost">Descubrir el modelo</a>
+                        <a href="#aplicar" class="btn-primary">Descubrir el modelo</a>
                         <a href="#modelo" class="btn-ghost hidden sm:inline-block">Descubrir el sistema</a>
                     </div>
                 </div>
@@ -130,7 +149,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                         
                         <!-- PASO 1 -->
                         <div id="step1">
-                            <h3 class="text-xl font-bold text-brand-black mb-2 text-center">DESCUBRIR EL MODELO</h3>
+                            <h3 class="text-xl font-bold text-brand-red mb-2 text-center">DESCUBRIR EL MODELO</h3>
                             <p class="text-[0.65rem] text-gray-500 mb-8 font-medium uppercase tracking-widest text-center">Déjanos tus datos y te explicaremos cómo funciona el modelo de Oi Real Estate y si encaja contigo.</p>
                             
                             <div class="space-y-5">
@@ -148,7 +167,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                                 </div>
                             </div>
 
-                            <button type="button" onclick="nextStep()" class="bg-brand-red text-white w-full py-4 mt-8 flex justify-center items-center text-[0.80rem] font-bold hover:bg-black transition-colors">
+                            <button type="button" onclick="nextStep()" class="bg-brand-red text-white w-full py-4 mt-8 flex justify-center items-center text-[0.80rem] font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-900/30 hover:shadow-red-800/40">
                                 SIGUIENTE
                             </button>
                         </div>
@@ -214,7 +233,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                                 <button type="button" onclick="prevStep()" class="w-1/3 py-3 text-[0.80rem] font-bold text-black hover:text-gray-500 transition-colors flex items-center justify-center">
                                     &larr; ATRÁS
                                 </button>
-                                <button type="submit" id="btn-enviar" class="w-2/3 py-3 bg-brand-red text-white text-[0.80rem] font-bold hover:bg-black transition-colors flex justify-center items-center">
+                                <button type="submit" id="btn-enviar" class="w-2/3 py-3 bg-brand-red text-white text-[0.80rem] font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-900/30 hover:shadow-red-800/40 flex justify-center items-center">
                                     ENVIAR APLICACIÓN &rarr;
                                 </button>
                             </div>
@@ -251,7 +270,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                             Nuestro equipo va a revisar tu solicitud, incluyendo la disponibilidad de tu zona. Como no todos los perfiles ni todas las zonas califican para el programa, te confirmamos por WhatsApp en menos de 24 horas si tu situación encaja con el modelo — y si es así, agendamos una llamada donde te explicamos con detalle la inversión y los plazos.
                         </p>
                         
-                        <p class="text-[0.70rem] text-gray-500 mb-10">
+                        <p class="text-[0.70rem] text-gray-400 mb-10">
                             Guarda este número en tus contactos para no perderte el mensaje.
                         </p>
                         
@@ -282,13 +301,13 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
         </section>
 
         <!-- SUBTÍTULO Y BENEFICIOS -->
-        <section id="modelo" class="py-24 bg-[#0f1115] text-center px-6">
+        <section id="modelo" class="py-24 bg-[#0d0f12] text-center px-6">
             <h2 class="text-4xl md:text-5xl font-serif text-white mb-4 font-normal">Empiezas con lo que a otros<br>les toma años construir.</h2>
             <p class="text-gray-400 font-sans font-normal mb-20">No necesitas experiencia inmobiliaria. Necesitas mentalidad empresarial.</p>
 
             <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
                 <!-- Benefit 1 -->
-                <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-8">
+                <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-8">
                     <div class="mb-6 text-brand-red">
                         <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -308,11 +327,11 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 </svg>
 
                     </div>
-                    <h3 class="text-2xl font-serif text-white mb-4">Cartera en marcha</h3>
+                    <h3 class="text-2xl font-serif text-brand-red mb-4">Cartera en marcha</h3>
                     <p class="text-gray-300 font-normal text-[0.95rem] leading-relaxed">No captas propiedades desde cero. Te incorporas a una cartera ya en marcha, con más de 100.000 propiedades gestionadas y más de 800 nuevos propietarios incorporados cada mes.</p>
                 </div>
                 <!-- Benefit 2 -->
-                <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-8">
+                <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-8">
                     <div class="mb-6 text-brand-red">
                         <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -331,11 +350,11 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 </svg>
 
                     </div>
-                    <h3 class="text-2xl font-serif text-white mb-4">Marca consolidada</h3>
+                    <h3 class="text-2xl font-serif text-brand-red mb-4">Marca consolidada</h3>
                     <p class="text-gray-300 font-normal text-[0.95rem] leading-relaxed">Operas bajo una marca consolidada desde 2008 - no bajo un nombre que tienes que dar a conocer tú mismo. El prestigio ya está construido.</p>
                 </div>
                 <!-- Benefit 3 -->
-                <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-8">
+                <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-8">
                     <div class="mb-6 text-brand-red">
                         <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -367,11 +386,11 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 </svg>
 
                     </div>
-                    <h3 class="text-2xl font-serif text-white mb-4">Tecnología propia</h3>
+                    <h3 class="text-2xl font-serif text-brand-red mb-4">Tecnología propia</h3>
                     <p class="text-gray-300 font-normal text-[0.95rem] leading-relaxed">CRM propio desde 2011, inteligencia artificial que analiza el mercado y cruza compradores, y un sistema que detecta propietarios y oportunidades antes que el resto del sector.</p>
                 </div>
                 <!-- Benefit 4 -->
-                <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-8">
+                <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-8">
                     <div class="mb-6 text-brand-red">
                         <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -393,11 +412,11 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 </svg>
 
                     </div>
-                    <h3 class="text-2xl font-serif text-white mb-4">Acompañamiento real</h3>
+                    <h3 class="text-2xl font-serif text-brand-red mb-4">Acompañamiento real</h3>
                     <p class="text-gray-300 font-normal text-[0.95rem] leading-relaxed">Formación inicial de 10 días más acompañamiento presencial durante tu primera semana de operación.</p>
                 </div>
                 <!-- Benefit 5 -->
-                <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-8">
+                <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-8">
                     <div class="mb-6 text-brand-red">
                         <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -418,11 +437,11 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 </svg>
 
                     </div>
-                    <h3 class="text-2xl font-serif text-white mb-4">Seguimiento intensivo</h3>
+                    <h3 class="text-2xl font-serif text-brand-red mb-4">Seguimiento intensivo</h3>
                     <p class="text-gray-300 font-normal text-[0.95rem] leading-relaxed">Seguimiento intensivo durante los primeros 3 meses y supervisión mensual desde el cuarto. No te dejamos operando solo.</p>
                 </div>
                 <!-- Benefit 6 -->
-                <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-8">
+                <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-8">
                     <div class="mb-6 text-brand-red">
                         <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -443,14 +462,14 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 </svg>
 
                     </div>
-                    <h3 class="text-2xl font-serif text-white mb-4">Exclusividad</h3>
+                    <h3 class="text-2xl font-serif text-brand-red mb-4">Exclusividad</h3>
                     <p class="text-gray-300 font-normal text-[0.95rem] leading-relaxed">Exclusividad de zona, confirmada mediante un estudio de mercado antes de arrancar.</p>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN COMPARATIVA (Fondo Oscuro literal) -->
-        <section class="py-24 px-6 bg-[#0f1115] text-white">
+        <section class="py-24 px-6 bg-[#0d0f12] text-white">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-serif text-center mb-20 font-normal text-white">
                     El modelo tradicional de franquicia inmobiliaria <span class="italic text-brand-red">se está quedando atrás.</span>
@@ -458,7 +477,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
                     <!-- Modelo Tradicional -->
-                    <div class="border border-zinc-800 rounded-xl p-10 relative bg-zinc-900/60">
+                    <div class="border border-zinc-700/60 rounded-2xl p-10 relative bg-[#16191f]">
                         <div class="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center">
                             <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -485,7 +504,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                     </div>
 
                     <!-- Modelo Oi -->
-                    <div class="border border-brand-red rounded-xl p-10 relative bg-zinc-900/60">
+                    <div class="border border-brand-red rounded-2xl p-10 relative bg-[#16191f]">
                         <div class="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-brand-red flex items-center justify-center">
                             <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -504,7 +523,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
 </svg>
 
                         </div>
-                        <h3 class="font-serif text-xl text-white mb-4">El Modelo Oi</h3>
+                        <h3 class="font-serif text-xl text-brand-red mb-4">El Modelo Oi</h3>
                         <p class="font-normal text-gray-300 leading-relaxed text-sm">
                             Nosotros hacemos lo contrario. Primero resolvemos la captación. Después, tú haces crecer la agencia.
                         </p>
@@ -521,20 +540,20 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
         </section>
 
         <!-- SECCIÓN NÚMEROS -->
-        <section class="py-24 bg-[#0f1115]">
+        <section class="py-24 bg-[#12151b] bg-linear-to-b from-red-950/20 to-transparent">
             <div class="max-w-6xl mx-auto px-6">
                 <h2 class="text-2xl font-serif text-center text-white mb-16 font-normal">Los números detrás del sistema.</h2>
                 <div class="flex flex-col md:flex-row justify-center items-center divide-y md:divide-y-0 md:divide-x divide-zinc-800">
                     <div class="px-4 md:px-8 py-8 md:py-0 text-center w-full md:w-1/3">
-                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-white mb-4">800</p>
+                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-brand-red mb-4">800</p>
                         <p class="text-[0.65rem] uppercase tracking-widest text-gray-400 font-bold leading-relaxed">PROPIETARIOS VENDEDORES<br>INCORPORADOS CADA MES</p>
                     </div>
                     <div class="px-4 md:px-8 py-8 md:py-0 text-center w-full md:w-1/3">
-                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-white mb-4">+100.000</p>
+                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-brand-red mb-4">+100.000</p>
                         <p class="text-[0.65rem] uppercase tracking-widest text-gray-400 font-bold leading-relaxed">PROPIEDADES<br>GESTIONADAS</p>
                     </div>
                     <div class="px-4 md:px-8 py-8 md:py-0 text-center w-full md:w-1/3">
-                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-white mb-4">2008</p>
+                        <p class="text-5xl md:text-5xl lg:text-6xl font-serif text-brand-red mb-4">2008</p>
                         <p class="text-[0.65rem] uppercase tracking-widest text-gray-400 font-bold leading-relaxed">OPERANDO EN<br>ESPAÑA DESDE</p>
                     </div>
                 </div>
@@ -542,7 +561,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
         </section>
 
         <!-- SECCIÓN TECNOLOGÍA Y CITA -->
-        <section class="py-24 px-6 md:px-12 lg:px-24 bg-[#0f1115] text-white">
+        <section class="py-24 px-6 md:px-12 lg:px-24 bg-[#0d0f12] text-white">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-serif text-center mb-6 font-normal text-white">
                     Tecnología y operativa de vanguardia
@@ -551,7 +570,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
                     
                     <!-- Tarjeta 1: Agenda IA -->
-                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-6">
+                    <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -574,13 +593,13 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
   <path d="M9 13v2" />
 </svg>
 
-                            <h4 class="text-xl font-serif font-bold text-white">Agenda IA</h4>
+                            <h4 class="text-xl font-serif font-bold text-brand-red">Agenda IA</h4>
                         </div>
                         <p class="text-sm font-normal text-gray-300 leading-relaxed">Olvídate de la puerta fría y las llamadas de prospección. Nuestra IA filtra y califica el interés, entregando solo citas confirmadas en tu CRM. Tu única tarea es la gestión comercial y el cierre.</p>
                     </div>
 
                     <!-- Tarjeta 2: Inventario -->
-                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-6">
+                    <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -601,13 +620,13 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
   <rect width="7" height="7" x="3" y="14" rx="1" />
 </svg>
 
-                            <h4 class="text-xl font-serif font-bold text-white">Inventario Verificado</h4>
+                            <h4 class="text-xl font-serif font-bold text-brand-red">Inventario Verificado</h4>
                         </div>
                         <p class="text-sm font-normal text-gray-300 leading-relaxed">Accede a nuestro catálogo de propiedades premium ya gestionadas y validadas. Empieza a operar con activos reales desde el primer día.</p>
                     </div>
 
                     <!-- Tarjeta 3: CRM -->
-                    <div class="bg-zinc-900/60 border border-zinc-800 rounded-xl p-6">
+                    <div class="bg-[#16191f] border border-zinc-700/60 rounded-2xl p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <!-- @license lucide-static v1.31.0 - ISC -->
 <svg
@@ -627,7 +646,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
   <path d="M6 21V9a9 9 0 0 0 9 9" />
 </svg>
 
-                            <h4 class="text-xl font-serif font-bold text-white">Tecnología Integrada</h4>
+                            <h4 class="text-xl font-serif font-bold text-brand-red">Tecnología Integrada</h4>
                         </div>
                         <p class="text-sm font-normal text-gray-300 leading-relaxed">Centraliza todo en nuestra plataforma propia: CRM integrado, gestión de demandas y automatización de seguimientos.</p>
                     </div>
@@ -636,19 +655,22 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                 <!-- CITA LUIS R. GUALTIERI -->
                 <div class="max-w-4xl mx-auto text-center border-t border-zinc-800 pt-16">
                     <p class="text-xl md:text-2xl font-serif italic text-gray-100 mb-6">"Quien controla los datos, controla las oportunidades. Y quien controla las oportunidades, lidera el mercado."</p>
-                    <p class="text-[0.70rem] text-brand-red font-bold uppercase tracking-widest">LUIS R. GUALTIERI, FUNDADOR Y CEO</p>
+                    <div class="flex flex-col items-center gap-1">
+                        <p class="text-[0.75rem] text-brand-red font-bold uppercase tracking-widest">Luis R. Gualtieri</p>
+                        <p class="text-[0.70rem] text-zinc-400 font-semibold uppercase tracking-widest leading-relaxed">Fundador y CEO</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- SECCIÓN TESTIMONIOS -->
-        <section class="py-24 px-6 bg-[#0f1115] border-t border-zinc-800">
+        <section class="py-24 px-6 bg-[#0d0f12] border-t border-zinc-800">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-serif text-center mb-16 font-normal text-white">Respaldado por resultados reales.</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <!-- Testimonio 1 -->
-                    <div class="bg-zinc-900/60 p-10 rounded-xl border border-zinc-800 relative pt-12">
+                    <div class="bg-[#16191f] p-10 rounded-2xl border border-zinc-700/60 relative pt-12">
                         <div class="absolute top-0 left-0 w-full h-1 bg-brand-red"></div>
                         <p class="font-serif italic text-gray-300 text-lg leading-relaxed mb-8">
                             "Oi Real Estate proporciona a los franquiciados un gran conocimiento del sector y una imagen sólida y bien posicionada en todo el territorio nacional."
@@ -660,7 +682,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                     </div>
 
                     <!-- Testimonio 2 -->
-                    <div class="bg-zinc-900/60 p-10 rounded-xl border border-zinc-800 relative pt-12">
+                    <div class="bg-[#16191f] p-10 rounded-2xl border border-zinc-700/60 relative pt-12">
                         <div class="absolute top-0 left-0 w-full h-1 bg-brand-red"></div>
                         <p class="font-serif italic text-gray-300 text-lg leading-relaxed mb-8">
                             "La ventaja de emprender con una franquicia es que adaptas su modelo a tus clientes y cartera de propiedades. Oi Real Estate aporta, además, un equipo profesional y la última tecnología."
@@ -681,7 +703,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
                 <h2 class="text-4xl md:text-6xl font-serif mb-6 font-normal">¿Listo para dar el siguiente paso?</h2>
                 <p class="font-normal text-white/90 mb-12 text-sm">Descubre si este modelo encaja contigo y conoce los requisitos para formar parte de la red.</p>
                 
-                <a href="#aplicar" class="inline-block bg-[#0f1115] text-white px-10 py-5 uppercase tracking-widest text-[0.75rem] font-bold hover:bg-white hover:text-[#0f1115] transition-colors shadow-lg">
+                <a href="#aplicar" class="inline-block bg-[#0d0f12] text-white px-10 py-5 uppercase tracking-widest text-[0.75rem] font-bold hover:bg-white hover:text-[#0d0f12] transition-colors shadow-lg">
                     DESCUBRIR EL MODELO -
                 </a>
                 
@@ -711,7 +733,7 @@ window.addEventListener('touchstart', loadFbevents, { passive: true });
         </section>
     </main>
 
-    <footer class="bg-[#0f1115] text-gray-400 py-10 px-6 text-[0.70rem] font-normal text-center flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
+    <footer class="bg-[#0d0f12] text-gray-400 py-10 px-6 text-[0.70rem] font-normal text-center flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
         <p class="mb-4 md:mb-0">© 2026 Oi Real Estate Barcelona. Todos los derechos reservados.</p>
         <div class="flex gap-6">
             <a href="#" class="hover:text-white transition-colors">Privacidad</a>
